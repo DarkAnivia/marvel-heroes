@@ -25,6 +25,8 @@ export class HeroService {
     (map(res =>res.data.data.results))
   }
 
+  //once limit is hit we get a 429 error
+
 
 
 }
