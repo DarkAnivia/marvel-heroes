@@ -1,0 +1,10 @@
+<p>hero-list works!</p>
+
+
+<mat-form-field class="example-form-field">
+        <input matInput type="text" [(ngModel)]="character">
+        <button mat-button *ngIf="character" matSuffix mat-icon-button aria-label="Clear" (click)="character=''">
+          <mat-icon>close</mat-icon>
+        </button>
+</mat-form-field>
+
