@@ -15,7 +15,7 @@ export class HeroService {
 
   public getCharactersFilteredByName (name: string): Observable<getCharactersFilteredByNameResponse>{
     return this.api.get(endpoints.character,{name: name}).pipe
-    (map(res =>{;
+    (map(res =>{console.log(res);
       return res.data.data.results}))
   }
 
@@ -24,6 +24,8 @@ export class HeroService {
     return this.api.get(endpoints.comics, {characters: id, orderBy:'onsaleDate'}).pipe
     (map(res =>res.data.data.results))
   }
+
+
 
   //once limit is hit we get a 429 error
 

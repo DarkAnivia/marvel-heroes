@@ -33,6 +33,14 @@
             "scripts": []
           },
           "configurations": {
+            "mock":{
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.mock.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -72,6 +80,9 @@
           "configurations": {
             "production": {
               "browserTarget": "marvel-heroes:build:production"
+            },
+            "mock":{
+              "browserTarget": "marvel-heroes:build:mock"
             }
           }
         },

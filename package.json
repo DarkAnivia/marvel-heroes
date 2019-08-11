@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
+    "mock": " ng serve --configuration=mock --open",
+    "server": "json-server --watch server/db.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
