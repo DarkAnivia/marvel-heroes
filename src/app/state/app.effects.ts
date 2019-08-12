@@ -12,7 +12,7 @@ export class HeroEffect {
     ofType('[HeroList Component] Load'),
     exhaustMap(action => this.heroSrv.getCharactersFilteredByName(action)
       .pipe(
-        map(heroes => ({ type: '[HeroList Component] LoadSuccess', payload: heroes })),
+        map(heroes => ({ type: '[HeroList Component] LoadSuccess', characters: heroes })),
         catchError(() => EMPTY)
       ))
     )

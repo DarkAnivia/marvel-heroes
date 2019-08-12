@@ -1,8 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
 import { load_characters, loaded_characters } from './app.actions';
-import { store } from './interface/store';
+import { HeroStore } from './interface/HeroStore';
 
-export const initialState: store = {characters: [], comics: []} ;
+export const initialState: HeroStore = {characters: [], comics: []} ;
 
 export const charactersReducer = createReducer(initialState,
   on(load_characters, state => state),

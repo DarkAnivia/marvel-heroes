@@ -1,7 +1,10 @@
+import { character } from './../shared/interfaces/character';
+import { Observable } from 'rxjs';
 import { load_characters } from './../state/app.actions';
 import { HeroService } from './../shared/services/hero.service';
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
+import { HeroStore } from '../state/interface/HeroStore';
 
 @Component({
   selector: 'app-hero-list',
@@ -11,9 +14,12 @@ import { Store } from '@ngrx/store';
 })
 export class HeroListComponent implements OnInit {
   public character:string;
-
-  constructor( private heroSrv: HeroService,
-    private store: Store<Object>) { 
+  public heroStore: Observable<HeroStore>;
+  
+  constructor( private store: Store<HeroStore>) { 
+    this.heroStore = store.pipe(select('marvel'))
+    this.heroStore.subscribe(data => console.log(data));
+    
 
  
 

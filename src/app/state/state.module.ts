@@ -14,7 +14,7 @@ import { charactersReducer } from './app.reducer';
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forRoot(charactersReducer),
+    StoreModule.forRoot({marvel: charactersReducer}),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([
       HeroEffect
