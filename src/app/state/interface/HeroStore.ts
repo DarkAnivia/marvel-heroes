@@ -1,7 +1,8 @@
 
-import { character } from 'src/app/shared/interfaces/character';
+import { Character } from 'src/app/shared/interfaces/Character';
+import { Comic } from 'src/app/shared/interfaces/comic';
 
 export interface HeroStore {
-    characters: Array<character>,
-    comics: Array<Object>
+    characters: Array<Character>,
+    comics: Array<Comic>
 }

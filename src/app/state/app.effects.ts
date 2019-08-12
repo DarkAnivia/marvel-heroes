@@ -12,7 +12,17 @@ export class HeroEffect {
     ofType('[HeroList Component] Load'),
     exhaustMap(action => this.heroSrv.getCharactersFilteredByName(action)
       .pipe(
-        map(heroes => ({ type: '[HeroList Component] LoadSuccess', characters: heroes })),
+        map(heroes => ({ type: '[HeroService Service] CharacterLoadSuccess', characters: heroes })),
+        catchError(() => EMPTY)
+      ))
+    )
+  );
+
+  public loadComic = createEffect(() => this.actions.pipe(
+    ofType('[HeroDetail Component] Load'),
+    exhaustMap(action => this.heroSrv.getComicsByCharacterIdOrderByOnSaleDateDesc(action)
+      .pipe(
+        map(comics => ({ type: '[HeroService Service] ComicLoadSuccess', comics: comics })),
         catchError(() => EMPTY)
       ))
     )

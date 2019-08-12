@@ -1,7 +1,5 @@
-import { character } from './../shared/interfaces/character';
 import { Observable } from 'rxjs';
-import { load_characters } from './../state/app.actions';
-import { HeroService } from './../shared/services/hero.service';
+import { load_characters, load_comics } from './../state/app.actions';
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { HeroStore } from '../state/interface/HeroStore';
@@ -19,20 +17,18 @@ export class HeroListComponent implements OnInit {
   constructor( private store: Store<HeroStore>) { 
     this.heroStore = store.pipe(select('marvel'))
     this.heroStore.subscribe(data => console.log(data));
-    
-
- 
-
   }
 
-  ngOnInit() {
-
-
-  }
+  ngOnInit() {}
 
   public submit(){
     this.store.dispatch(load_characters({character: this.character}))
+    // this.store.dispatch(load_comics({comic: 102}))
 
+  }
+
+  public print(){
+    this.heroStore.subscribe(data => console.log(data));
   }
  
 }

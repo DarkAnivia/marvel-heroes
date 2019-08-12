@@ -1,9 +1,10 @@
+import { getComicsByCharacterIdOrderByOnSaleDateDescResponse } from './../interfaces/GetComicsByCharacterIdOrderByOnSaleDateDescResponse';
 import { Injectable } from '@angular/core';
 import { Api } from '../api/api';
 import { endpoints } from './endpoints';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { getCharactersFilteredByNameResponse } from '../interfaces/getCharactersFilteredByNameResponse';
+import { getCharactersFilteredByNameResponse } from '../interfaces/GetCharactersFilteredByNameResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class HeroService {
       return res.data.data.results}))
   }
 
-  public getComicsByCharacterIdOrderByOnSaleDateDesc(id: string): Observable<Object>{
+  public getComicsByCharacterIdOrderByOnSaleDateDesc(id: string): Observable<getComicsByCharacterIdOrderByOnSaleDateDescResponse>{
     //Could improve to be more generic
     return this.api.get(endpoints.comics, {characters: id, orderBy:'onsaleDate'}).pipe
     (map(res =>res.data.data.results))

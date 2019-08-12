@@ -1,6 +1,6 @@
-import { marvelResponse } from './marvelResponse';
-import { character } from './character';
+import { MarvelResponse } from './MarvelResponse';
+import { Character } from './character';
 
-export interface getCharactersFilteredByNameResponse extends marvelResponse {
-    results?: Array<character>;
+export interface getCharactersFilteredByNameResponse extends MarvelResponse {
+    results?: Array<Character>;
 }
