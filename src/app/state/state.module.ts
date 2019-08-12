@@ -5,21 +5,19 @@ import {StoreModule} from '@ngrx/store';
 import {StoreRouterConnectingModule, routerReducer, RouterStateSerializer} from '@ngrx/router-store'
 import { StoreDevtoolsModule} from '@ngrx/store-devtools'
 import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
-import { appReducer, appMetaReducers } from './app.reducer';
+import { HeroEffect } from './app.effects';
 import { CustomSerializer } from './shared/utils';
+import { charactersReducer } from './app.reducer';
 
 
 
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forRoot(appReducer, {
-      metaReducers: appMetaReducers
-    }),
+    StoreModule.forRoot(charactersReducer),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([
-      AppEffects
+      HeroEffect
     ]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],

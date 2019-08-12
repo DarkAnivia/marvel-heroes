@@ -1,21 +1,13 @@
-import { routerReducer } from "@ngrx/router-store";
-import { ActionReducer, ActionReducerMap, MetaReducer } from "@ngrx/store";
-import { storeFreeze } from "ngrx-store-freeze";
-import { environment } from "../../environments/environment";
-import { AppState } from "./app.interfaces";
+import { createReducer, on } from '@ngrx/store';
+import { load_characters, loaded_characters } from './app.actions';
+import { store } from './interface/store';
 
-export const appReducer: ActionReducerMap<AppState> = {
-  router: routerReducer
-};
+export const initialState: store = {characters: [], comics: []} ;
 
-export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
-  return function(state: AppState, action: any): AppState {
-    console.log("state", state);
-    console.log("action", action);
-    return reducer(state, action);
-  };
-}
-
-export const appMetaReducers: MetaReducer<AppState>[] = !environment.production
-  ? [logger, storeFreeze]
-  : [];
+export const charactersReducer = createReducer(initialState,
+  on(load_characters, state => state),
+  on(loaded_characters, (state,{characters}) =>  ({
+    ...state,
+    characters: characters
+  })
+));
