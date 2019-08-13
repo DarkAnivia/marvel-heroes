@@ -18,11 +18,12 @@ export class HeroListComponent implements OnInit {
 
   
   constructor( private store: Store<HeroStore>) { 
-    this.heroStore = store.pipe(select('marvel'))
-    this.heroStore.subscribe(data => this.heroes = data.characters);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.heroStore = this.store.pipe(select('marvel'))
+    this.heroStore.subscribe(data => this.heroes = data.characters);
+  }
 
   public submit(){
     this.store.dispatch(load_characters({character: this.character}))

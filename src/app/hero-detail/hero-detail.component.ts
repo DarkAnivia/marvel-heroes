@@ -1,7 +1,7 @@
 import { Character } from './../shared/interfaces/Character';
 import { HeroStore } from './../state/interface/HeroStore';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Comic } from '../shared/interfaces/Comic';
 import { Observable } from 'rxjs';
@@ -17,17 +17,23 @@ export class HeroDetailComponent implements OnInit {
   public comics: Array<Comic>;
   public heroStore: Observable<HeroStore>;
 
-  constructor(private route: ActivatedRoute, private store: Store<HeroStore>) { 
-    this.heroStore = store.pipe(select('marvel'))
-    this.heroStore.subscribe(data => {
-      this.hero = data.characters.find(heroe => heroe.id.toString() === this.route.snapshot.paramMap.get("id"))
-      this.comics = data.comics;
-    });
-  }
+  constructor(private actRoute: ActivatedRoute, 
+    private route: Router, 
+    private store: Store<HeroStore>) 
+    {}
 
 
   ngOnInit() {
-      this.store.dispatch(load_comics({characterId: parseInt(this.route.snapshot.paramMap.get("id"))}));
+    this.heroStore = this.store.pipe(select('marvel'))
+    const heroeId: string = this.actRoute.snapshot.paramMap.get("id");
+    this.heroStore.subscribe(data => {
+      this.hero = data.characters.find(heroe => heroe.id.toString() === heroeId)
+      this.comics = data.comics;
+      if (!this.hero){
+        this.route.navigate(['/heroes'])
+      }
+    });
+      this.store.dispatch(load_comics({characterId: parseInt(heroeId)}));
   }
 
   public print(){

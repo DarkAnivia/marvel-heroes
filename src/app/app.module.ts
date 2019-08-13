@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HeroeCardComponent } from './shared/components/heroe-card/heroe-card.component';
 import { ThumbnailComponent } from './shared/components/thumbnail/thumbnail.component';
+import { HeroDetailGuardService } from './shared/services/guard.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -36,7 +37,8 @@ const pages =
 [];
 const services = [
   Api,
-  HeroService
+  HeroService,
+  HeroDetailGuardService
 ];
 
 
