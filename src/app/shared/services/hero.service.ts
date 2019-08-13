@@ -25,11 +25,6 @@ export class HeroService {
     return this.api.get(endpoints.comics, {characters: id, orderBy:'onsaleDate'}).pipe
     (map(res =>res.data.data.results))
   }
-
-
-
   //once limit is hit we get a 429 error
-
-
 
 }
