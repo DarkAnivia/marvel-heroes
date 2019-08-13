@@ -1,9 +1,14 @@
-<a [routerLink]="['/hero-detail', heroe.id]" class="md-card">
-    <h3>{{heroe.name}}</h3>
+<a [routerLink]="['/hero-detail', heroe.id]" class="mh-card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{heroe.name}}</mat-card-title>
+      <mat-card-subtitle>{{heroe.modified | date:'dd/MM/yyyy'}}</mat-card-subtitle>
+    </mat-card-header>
     <mh-thumbnail
       *ngIf="heroe.thumbnail"
       [image]="heroe.thumbnail"
       alt="Thumbnail of {{heroe.name}}"
     ></mh-thumbnail>
+  </mat-card>
   </a>
   

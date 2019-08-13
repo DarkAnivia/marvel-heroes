@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Character } from '../../interfaces/character';
 
 @Component({
   selector: 'mh-heroe-card',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeroeCardComponent implements OnInit {
 
-  @Input() heroe;
+  @Input() heroe:Character;
 
   constructor() { }
 
