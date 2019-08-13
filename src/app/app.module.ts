@@ -14,6 +14,8 @@ import { Api } from './shared/api/api';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { HeroeCardComponent } from './shared/components/heroe-card/heroe-card.component';
+import { ThumbnailComponent } from './shared/components/thumbnail/thumbnail.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -21,7 +23,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 const components =
 [   HeroListComponent,
-  HeroDetailComponent];
+  HeroDetailComponent,
+  HeroeCardComponent,
+  ThumbnailComponent];
 
 
 const pipes =

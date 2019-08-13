@@ -1,0 +1,9 @@
+<a [routerLink]="['/hero-detail', heroe.id]" class="md-card">
+    <h3>{{heroe.name}}</h3>
+    <mh-thumbnail
+      *ngIf="heroe.thumbnail"
+      [image]="heroe.thumbnail"
+      alt="Thumbnail of {{heroe.name}}"
+    ></mh-thumbnail>
+  </a>
+  

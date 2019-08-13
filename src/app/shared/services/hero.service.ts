@@ -15,6 +15,7 @@ export class HeroService {
   }
 
   public getCharactersFilteredByName (name: string): Observable<getCharactersFilteredByNameResponse>{
+    console.log(name);
     return this.api.get(endpoints.character,{name: name}).pipe
     (map(res =>{
       return res.data.data.results}))
@@ -22,6 +23,7 @@ export class HeroService {
 
   public getComicsByCharacterIdOrderByOnSaleDateDesc(id: string): Observable<getComicsByCharacterIdOrderByOnSaleDateDescResponse>{
     //Could improve to be more generic
+    console.log(id);
     return this.api.get(endpoints.comics, {characters: id, orderBy:'onsaleDate'}).pipe
     (map(res =>res.data.data.results))
   }

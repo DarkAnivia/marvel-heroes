@@ -1,8 +1,8 @@
 import { HeroService } from './../shared/services/hero.service';
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType, createEffect } from '@ngrx/effects';
+import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
-import { map, mergeMap, catchError, exhaustMap } from 'rxjs/operators';
+import { map, catchError, exhaustMap, tap } from 'rxjs/operators';
 
 
 @Injectable()

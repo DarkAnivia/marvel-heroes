@@ -7,7 +7,16 @@
           <mat-icon>close</mat-icon>
         </button>
 </mat-form-field>
+
 <button (click)='submit()'>{{'enter'|translate}}</button>
 
 <button (click)='print()'>{{'print'|translate}}</button>
+
+<div *ngIf="heroes && !isLoading" class="mh-cards-list">
+  <mh-heroe-card
+      *ngFor="let heroe of heroes"
+      [heroe]="heroe"
+      class="mh-cards-list__item"
+  ></mh-heroe-card>
+</div>
 
