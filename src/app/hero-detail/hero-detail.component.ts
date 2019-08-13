@@ -27,7 +27,7 @@ export class HeroDetailComponent implements OnInit {
 
 
   ngOnInit() {
-      this.store.dispatch(load_comics({character: parseInt(this.route.snapshot.paramMap.get("id"))}));
+      this.store.dispatch(load_comics({characterId: parseInt(this.route.snapshot.paramMap.get("id"))}));
   }
 
   public print(){
