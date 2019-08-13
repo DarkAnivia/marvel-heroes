@@ -2,7 +2,7 @@ import { HeroService } from './../shared/services/hero.service';
 import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
-import { map, catchError, exhaustMap } from 'rxjs/operators';
+import { map, catchError, exhaustMap, switchMap } from 'rxjs/operators';
 import { load_characters, load_comics, loaded_comics, loaded_characters } from './app.actions';
 
 
@@ -11,7 +11,7 @@ export class HeroEffect {
  
   public loadHeroes = createEffect(() => this.actions.pipe(
     ofType(load_characters),
-    exhaustMap(action => this.heroSrv.getCharactersFilteredByName(action.character)
+    switchMap(action => this.heroSrv.getCharactersFilteredByName(action.character)
       .pipe(
         map(heroes => ({ type: loaded_characters.type, characters: heroes })),
         catchError(() => EMPTY)
