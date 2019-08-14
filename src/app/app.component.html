@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-<mat-toolbar color="primary">
+<mat-toolbar class="header">
     <mat-toolbar-row>
       <a mat-icon-button href="https://www.angular.io/" target="_blank">
         <img src="assets/angular.png">
@@ -15,9 +15,13 @@
   <div class="content">
  
 <router-outlet></router-outlet>
-
-
 </div>
 
+<mat-toolbar  class="footer">
+    <mat-toolbar-row>
+      <small fxFlex>version: {{version}}</small>
+      <small>Data provided by Marvel. © 2014 Marvel</small>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
 </div>
