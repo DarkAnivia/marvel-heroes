@@ -25,8 +25,8 @@ export class HeroListComponent implements OnInit {
     this.heroStore.subscribe(data => this.heroes = data.characters);
   }
 
-  public submit(){
-    this.store.dispatch(load_characters({character: this.character}))
+  public search(character: string){
+    this.store.dispatch(load_characters({character: character}))
 
   }
 

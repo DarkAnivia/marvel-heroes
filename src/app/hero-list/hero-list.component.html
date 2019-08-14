@@ -1,16 +1,11 @@
 <p>hero-list works!</p>
 
-
-<mat-form-field class="example-form-field">
-        <input matInput type="text" [(ngModel)]="character">
-        <button mat-button *ngIf="character" matSuffix mat-icon-button aria-label="Clear" (click)="character=''">
-          <mat-icon>close</mat-icon>
-        </button>
-</mat-form-field>
-
-<button (click)='submit()'>{{'enter'|translate}}</button>
-
-<button (click)='print()'>{{'print'|translate}}</button>
+<mat-form-field>
+    <input matInput placeholder="Search for characters..." [(ngModel)]="character" (keyup)="search(character)">
+    <button mat-button *ngIf="character" matSuffix mat-icon-button aria-label="Clear" (click)="character=''">
+        <mat-icon>close</mat-icon>
+      </button>
+  </mat-form-field>
 
 <div *ngIf="heroes && !isLoading" class="mh-cards-list">
   <mh-heroe-card
