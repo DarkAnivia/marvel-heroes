@@ -1,7 +1,6 @@
-<p>hero-list works!</p>
-
 <mat-form-field>
-    <input matInput placeholder="Search for characters..." [(ngModel)]="character" (keyup)="search(character)">
+  <mat-label>{{'SEARCH_CHARACTER' | translate}}</mat-label>
+    <input matInput  [(ngModel)]="character" (keyup)="search(character)">
     <button mat-button *ngIf="character" matSuffix mat-icon-button aria-label="Clear" (click)="character=''">
         <mat-icon>close</mat-icon>
       </button>
