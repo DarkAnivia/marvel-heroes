@@ -1,0 +1,11 @@
+{
+    "BASIC_INFO": "Basic Hero Information",
+    "COMIC_LIST": "Comic list",
+    "DESCRIPTION": "Description",
+    "LAST_MODIFIED": "<b>Last modified:</b> {{date}}",
+    "NAME": "Name: {{name}}",
+    "RELEASE_DATE": "Onsale Date: {{date}}",
+    "SEARCH_CHARACTER": "Heroe to search",
+    "STORIES": "Story List",
+    "TITLE": "Title: {{title}}"
+}

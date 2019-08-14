@@ -1,6 +1,7 @@
 
+<div class="hero-list">
 <mat-form-field class="searchBar">
-  <mat-label >{{'SEARCH_CHARACTER' | translate}}</mat-label >
+  <mat-label >{{'SEARCH_CHARACTER' | translate:cara}}</mat-label >
     <input matInput  [(ngModel)]="character" (keyup)="search(character)">
     <button mat-button *ngIf="character" matSuffix mat-icon-button aria-label="Clear" (click)="character=''">
         <mat-icon>close</mat-icon>
@@ -13,6 +14,7 @@
       [heroe]="heroe"
       class="mh-cards-list__item"
   ></mh-heroe-card>
+</div>
 </div>
 
 

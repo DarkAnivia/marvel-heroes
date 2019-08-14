@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'marvel-heroes';
   constructor(translate: TranslateService) {
-    translate.setDefaultLang('es');
-   translate.use('es');
+    translate.setDefaultLang('en');
+   translate.use('en');
 }
 }

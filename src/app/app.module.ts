@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HeroeCardComponent } from './shared/components/heroe-card/heroe-card.component';
 import { ThumbnailComponent } from './shared/components/thumbnail/thumbnail.component';
+import { HeroBasicInfoComponent } from './shared/components/hero-basic-info/hero-basic-info.component';
+import { ComicInfoComponent } from './shared/components/comic-info/comic-info.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -66,6 +68,8 @@ const modules = [
     ...pages,
     ...components,
     ...pipes,
+    HeroBasicInfoComponent,
+    ComicInfoComponent,
  
   ],
   imports: [

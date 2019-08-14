@@ -1,0 +1,19 @@
+<h1>{{hero.name}}</h1>
+<div class="basic-info">
+    <div class="picture">
+        <mh-thumbnail *ngIf="hero && hero.thumbnail" [image]="hero.thumbnail" alt="Thumbnail of {{hero.name}}">
+        </mh-thumbnail>
+    </div>
+    <div class="desc">
+        <h2>{{'BASIC_INFO' | translate }}</h2>
+        <span [innerHTML]="'LAST_MODIFIED' | translate:{date: getFormatedDate(hero.modified)}"></span>
+        <h4>{{'DESCRIPTION' |translate}}</h4>
+        <p>{{hero.description}}</p>
+        <div *ngIf="hero.stories && hero.stories.available !== 0">
+            <h4>{{'STORIES' |translate}}</h4>
+            <mat-list>
+                <mat-list-item *ngFor="let story of hero.stories.items.slice(0,5)">{{story.name}}</mat-list-item>
+            </mat-list>
+        </div>
+    </div>
+</div>

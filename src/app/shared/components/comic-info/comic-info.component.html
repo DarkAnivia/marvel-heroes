@@ -1,0 +1,16 @@
+<div class="comics">
+    <h2>{{'COMIC_LIST' | translate }}</h2>
+    <div class="comics-container">
+        <mat-card *ngFor="let comic of comics">
+            <div class="single-comic-container">
+                <mh-thumbnail class="cover" *ngIf="comic.thumbnail" [image]="comic.thumbnail"
+                    alt="Thumbnail of {{comic.title}}">
+                </mh-thumbnail>
+                <div class="comic-content">
+                    <p>{{ 'TITLE' | translate:{title: comic.title} }}</p>
+                    <p>{{ 'RELEASE_DATE' | translate: {date: getDate(comic.dates[0].date)} }}</p>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

@@ -1,25 +1,7 @@
-<p>hero-detail works!</p>
 <button (click)='print()'>Log</button>
-<div *ngIf="hero && comics">
-<span>{{hero.name}}</span>
-<span>{{hero.modified | date:'dd/MM/yyyy'}}</span>
-<mh-thumbnail *ngIf="hero && hero.thumbnail"
-[image]="hero.thumbnail"
-alt="Thumbnail of {{hero.name}}">
-</mh-thumbnail>
-<p>{{hero.description}}</p>
-<mat-list>
-    <mat-list-item *ngFor="let story of hero.stories.items.slice(0,5)">{{story.name}}</mat-list-item>
-</mat-list>
-<mat-card *ngFor="let comic of comics">
-    <mat-card-header>
-        <mat-card-subtitle>{{comic.title}}</mat-card-subtitle>
-        <mat-card-subtitle>{{comic.dates[0].date | date:'dd/MM/yyyy'}}</mat-card-subtitle>
-    </mat-card-header>
-        <mh-thumbnail
-        *ngIf="comic.thumbnail"
-        [image]="comic.thumbnail"
-        alt="Thumbnail of {{comic.title}}">
-        </mh-thumbnail>
-</mat-card>
+<br>
+<div *ngIf="hero && comics" class="hero">
+
+    <mh-hero-basic-info [hero]="hero"></mh-hero-basic-info>
+    <mh-comic-info [comics]="comics"></mh-comic-info>
 </div>
