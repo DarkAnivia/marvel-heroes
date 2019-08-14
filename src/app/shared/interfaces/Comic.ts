@@ -1,3 +1,5 @@
+import { ComicDate } from './ComicDate';
+
 export interface Comic {
   // id?: number,
   // digitalId?: number,
@@ -49,12 +51,7 @@ export interface Comic {
   //     name?: string
   //   }
   // ],
-  dates?: [
-    {
-      type?: string,
-      date?: Date
-    }
-  ],
+  dates?: ComicDate[],
   // prices?: [
   //   {
   //     type?: string,

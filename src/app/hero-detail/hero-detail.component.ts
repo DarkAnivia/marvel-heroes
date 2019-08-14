@@ -14,7 +14,7 @@ import { load_comics } from '../state/app.actions';
 })
 export class HeroDetailComponent implements OnInit {
   public hero : Character;
-  public comics: Array<Comic>;
+  public comics: Comic[];
   public heroStore: Observable<HeroStore>;
 
   constructor(private actRoute: ActivatedRoute, 
@@ -34,11 +34,11 @@ export class HeroDetailComponent implements OnInit {
       }
     });
       this.store.dispatch(load_comics({characterId: parseInt(heroeId)}));
+
   }
 
   public print(){
-    console.log(this.hero);
-    console.log((this.comics));
+    this.route.navigate(['/heroes'])
   }
 
 }

@@ -1,3 +1,5 @@
+import { Story } from './Story';
+
 export interface Character {        
     id?: number,
     name?: string,
@@ -29,13 +31,7 @@ export interface Character {
       available?: number,
       returned?: number,
       collectionURI?: string,
-      items?: [
-        {
-          resourceURI?: string,
-          name?: string,
-          type?: string
-        }
-      ]
+      items?: Story[]
     },
     // events?: {
     //   available?: number,
