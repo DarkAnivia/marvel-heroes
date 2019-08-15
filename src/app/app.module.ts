@@ -1,7 +1,7 @@
 import { HeroService } from './shared/services/hero.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
@@ -53,6 +53,9 @@ const modules = [
       deps: [HttpClient]
     }
   }),
+  ToastrModule.forRoot({
+    preventDuplicates: true,
+  }), // ToastrModule added
   StateModule.forRoot(),
   MaterialModule,
   BrowserModule,

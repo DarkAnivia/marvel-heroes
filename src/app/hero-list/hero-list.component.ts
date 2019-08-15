@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { load_characters } from './../state/app.actions';
+import { load_characters, loaded_characters } from './../state/app.actions';
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { HeroStore } from '../state/interface/HeroStore';
@@ -26,12 +26,12 @@ export class HeroListComponent implements OnInit {
   }
 
   public search(character: string){
-    this.store.dispatch(load_characters({character: character}))
+    if(character){    
+      this.store.dispatch(load_characters({character: character}))
+    }else{
+      this.store.dispatch(loaded_characters({characters: []}))
+    }
 
-  }
-
-  public print(){
-    this.heroStore.subscribe(data => console.log(data));
   }
  
 }

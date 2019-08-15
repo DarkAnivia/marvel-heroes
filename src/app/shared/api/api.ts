@@ -10,7 +10,8 @@ import { environment } from 'src/environments/environment';
  * Generic REST ApiNative handler.
  */
 
-const API_AUTH = {apikey:'302e2db61e1f8a290e6b3f0439a8c382'};
+const API_AUTH = {apikey: '302e2db61e1f8a290e6b3f0439a8c382'};
+// const API_AUTH = {apikey: '302e2db1f8a290e6b3f0439a8c382'};
 
 @Injectable()
 export class Api extends ApiWrapper {

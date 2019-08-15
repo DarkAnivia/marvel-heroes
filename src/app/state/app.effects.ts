@@ -1,9 +1,10 @@
 import { HeroService } from './../shared/services/hero.service';
 import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
-import { EMPTY, of } from 'rxjs';
-import { map, catchError, exhaustMap, switchMap } from 'rxjs/operators';
-import { load_characters, load_comics, loaded_comics, loaded_characters, error_characters, error_comics } from './app.actions';
+import {  of, EMPTY } from 'rxjs';
+import { map, catchError, switchMap } from 'rxjs/operators';
+import { load_characters, load_comics, loaded_comics, loaded_characters, error_action } from './app.actions';
+import { ErrorService } from '../shared/services/error.service';
 
 
 @Injectable()
@@ -14,7 +15,7 @@ export class HeroEffect {
     switchMap(action => this.heroSrv.getCharactersFilteredByName(action.character)
       .pipe(
         map(heroes => ({ type: loaded_characters.type, characters: heroes })),
-        catchError((error) => of({type:error_characters.type, error})
+        catchError((error) => of({type:error_action.type, error})
       ))
     ))
   );
@@ -24,21 +25,20 @@ export class HeroEffect {
     switchMap(action => this.heroSrv.getComicsByCharacterIdOrderByOnSaleDateDesc(action.characterId)
       .pipe(
         map(comics => ({ type: loaded_comics.type, comics: comics })),
-        catchError((error) => of({type:error_characters.type, error})
+        catchError((error) => of({type:error_action.type, error})
       ))
     ))
   );
 
   public error = createEffect(() => this.actions.pipe(
-    ofType(error_characters, error_comics),
-    exhaustMap(action => this.heroSrv.getComicsByCharacterIdOrderByOnSaleDateDesc(123)
-      .pipe(
-        map(comics => ({ type: loaded_comics.type, comics: comics })),
-        catchError(() => EMPTY)
-      ))
-    )
+    ofType(error_action),
+    switchMap((action) => { this.errorSrv.handleErrors(action.error);
+    return of(EMPTY)})
+    ),
+    {dispatch : false}
   ); 
 
   constructor(private actions: Actions,
-    private heroSrv: HeroService) { }
+    private heroSrv: HeroService,
+    private errorSrv: ErrorService) { }
 }

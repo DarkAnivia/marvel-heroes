@@ -3,11 +3,13 @@
     "BASIC_INFO": "Basic Hero Information",
     "COMIC_LIST": "Comic list",
     "DESCRIPTION": "Description",
+    "ERROR": "Failure",
     "GO_BACK": "Back",
     "HERO_LIST": "List of Heroes",
     "LAST_MODIFIED": "<b>Last modified:</b> {{date}}",
     "RELEASE_DATE": "<b>Onsale Date:</b> {{date}}",
     "SEARCH_CHARACTER": "Search Hero",
     "STORIES": "Story List",
-    "TITLE": "<b>Title:</b> {{title}}"
+    "TITLE": "<b>Title:</b> {{title}}",
+    "UNEXPECTED_ERROR": "We got an issue, please try again later"
 }

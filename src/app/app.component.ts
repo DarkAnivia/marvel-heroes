@@ -21,8 +21,6 @@ export class AppComponent {
       } )
     )
     .subscribe( (event : NavigationEnd) => {
-      console.log(event.url);
-      console.log(event.url.startsWith('/heroe-detail'));
       if (event.url.startsWith('/heroe-detail')){
         this.showBack= true
       }else{
