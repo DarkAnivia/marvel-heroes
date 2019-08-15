@@ -6,7 +6,7 @@
     "start": "ng serve --open",
     "mock": " ng serve --configuration=mock --open",
     "server": "json-server --watch server/db.json",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
