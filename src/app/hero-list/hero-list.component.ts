@@ -15,6 +15,7 @@ export class HeroListComponent implements OnInit {
   public character:string;
   public heroStore: Observable<HeroStore>;
   public heroes: Array<Character>
+  public showLoading: boolean;
 
   
   constructor( private store: Store<HeroStore>) { 
@@ -22,7 +23,9 @@ export class HeroListComponent implements OnInit {
 
   ngOnInit() {
     this.heroStore = this.store.pipe(select('marvel'))
-    this.heroStore.subscribe(data => this.heroes = data.characters);
+    this.heroStore.subscribe(data => {
+      this.heroes = data.characters
+      this.showLoading= data.loading});
   }
 
   public search(character: string){

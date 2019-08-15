@@ -4,5 +4,6 @@ import { Comic } from 'src/app/shared/interfaces/Comic';
 
 export interface HeroStore {
     characters: Array<Character>,
-    comics: Array<Comic>
+    comics: Array<Comic>,
+    loading: boolean
 }

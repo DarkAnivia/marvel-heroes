@@ -17,6 +17,7 @@ export class HeroDetailComponent implements OnInit {
   public comics: Comic[];
   public heroStore: Observable<HeroStore>;
   public heroName= {};
+  public showLoading: boolean;
 
   constructor(private actRoute: ActivatedRoute, 
     private route: Router, 
@@ -30,10 +31,11 @@ export class HeroDetailComponent implements OnInit {
     this.heroStore.subscribe(data => {
       this.hero = data.characters.find(heroe => heroe.id.toString() === heroeId)
       this.comics = data.comics;
-      this.heroName = {name: this.hero.name};
+      this.showLoading = data.loading
       if (!this.hero){
         this.route.navigate(['/heroes'])
       }
+      this.heroName = {name: this.hero.name};
     });
       this.store.dispatch(load_comics({characterId: parseInt(heroeId)}));
 
