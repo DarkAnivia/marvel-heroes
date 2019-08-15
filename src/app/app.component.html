@@ -2,19 +2,16 @@
 
 <mat-toolbar >
     <mat-toolbar-row class="header">
-      <a href="https://www.marvel.com/" target="_blank">
-        <img class="header-logo" src="assets/img/marvel.svg">
-      </a>
-
-      
-
-      <h1 >{{'APP_TITLE' | translate}}</h1>
-
       <a [ngStyle]="{'visibility': showBack ? 'visible':'hidden' }" mat-icon-button routerLink="/heroes">
         <mat-icon>arrow_back</mat-icon>
         <span>{{'GO_BACK' | translate}}</span>
       </a>
 
+      <h1 >{{'APP_TITLE' | translate}}</h1>
+      
+      <a href="https://www.marvel.com/" target="_blank">
+        <img class="header-logo" src="assets/img/marvel.svg">
+      </a>
     </mat-toolbar-row>
   </mat-toolbar>
 
