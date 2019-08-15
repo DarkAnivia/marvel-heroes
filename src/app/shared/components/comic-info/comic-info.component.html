@@ -7,8 +7,8 @@
                     alt="Thumbnail of {{comic.title}}">
                 </mh-thumbnail>
                 <div class="comic-content">
-                    <p>{{ 'TITLE' | translate:{title: comic.title} }}</p>
-                    <p>{{ 'RELEASE_DATE' | translate: {date: getDate(comic.dates[0].date)} }}</p>
+                    <p [innerHTML]="'TITLE' | translate:{title: comic.title}"></p>
+                    <p [innerHTML]="'RELEASE_DATE' | translate: {date: getDate(comic.dates[0].date)}"></p>
                 </div>
             </div>
         </mat-card>

@@ -6,9 +6,6 @@ import { Store, select } from '@ngrx/store';
 import { Comic } from '../shared/interfaces/Comic';
 import { Observable } from 'rxjs';
 import { load_comics } from '../state/app.actions';
-import { TranslateService } from '@ngx-translate/core';
-import { formatDate } from '@angular/common';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-hero-detail',
@@ -23,8 +20,7 @@ export class HeroDetailComponent implements OnInit {
 
   constructor(private actRoute: ActivatedRoute, 
     private route: Router, 
-    private store: Store<HeroStore>,
-    private translationSrv: TranslateService) 
+    private store: Store<HeroStore>,) 
     {}
 
 

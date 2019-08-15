@@ -1,11 +1,13 @@
 {
+    "APP_TITLE": "Marvel Hero Searcher",
     "BASIC_INFO": "Basic Hero Information",
     "COMIC_LIST": "Comic list",
     "DESCRIPTION": "Description",
+    "GO_BACK": "Back",
+    "HERO_LIST": "List of Heroes",
     "LAST_MODIFIED": "<b>Last modified:</b> {{date}}",
-    "NAME": "Name: {{name}}",
-    "RELEASE_DATE": "Onsale Date: {{date}}",
-    "SEARCH_CHARACTER": "Heroe to search",
+    "RELEASE_DATE": "<b>Onsale Date:</b> {{date}}",
+    "SEARCH_CHARACTER": "Search Hero",
     "STORIES": "Story List",
-    "TITLE": "Title: {{title}}"
+    "TITLE": "<b>Title:</b> {{title}}"
 }

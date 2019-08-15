@@ -1,13 +1,19 @@
 <div class="wrapper">
 
-<mat-toolbar class="header">
-    <mat-toolbar-row>
-      <a mat-icon-button href="https://www.angular.io/" target="_blank">
-        <img src="assets/angular.png">
+<mat-toolbar >
+    <mat-toolbar-row class="header">
+      <a href="https://developer.marvel.com" target="_blank">
+        <img class="header-logo" src="assets/img/marvel.svg">
       </a>
 
-      <h2 fxFlex>title</h2>
+      
 
+      <h1 >{{'APP_TITLE' | translate}}</h1>
+
+      <a [ngStyle]="{'visibility': showBack ? 'visible':'hidden' }" mat-icon-button routerLink="/heroes">
+        <mat-icon>arrow_back</mat-icon>
+        <span>{{'GO_BACK' | translate}}</span>
+      </a>
 
     </mat-toolbar-row>
   </mat-toolbar>
@@ -17,10 +23,9 @@
 <router-outlet></router-outlet>
 </div>
 
-<mat-toolbar  class="footer">
-    <mat-toolbar-row>
-      <small fxFlex>version: {{version}}</small>
-      <small>Data provided by Marvel. © 2014 Marvel</small>
+<mat-toolbar  >
+    <mat-toolbar-row class="footer">
+      <small>Data provided by Marvel. © 2019 Marvel</small>
     </mat-toolbar-row>
   </mat-toolbar>
 
